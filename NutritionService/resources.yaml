@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: nutritionservice
-        image: us-central1-docker.pkg.dev/GOOGLE_PROJECT/fitness/nutritionservice:latest
+        image: us-central1-docker.pkg.dev/GOOGLE_PROJECT/github-actions/nutritionservice:latest
             
         
 
