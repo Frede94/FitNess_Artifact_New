@@ -1,5 +1,5 @@
 # Name of the workflow
-name: Scheduled Job
+name: Tests - Scheduled Job
 
 # Define the event that triggers the workflow
 on:
