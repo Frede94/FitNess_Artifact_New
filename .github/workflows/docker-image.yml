@@ -31,12 +31,12 @@ jobs:
         GOOGLE_PROJECT: ${{ secrets.ARTIFACT_PROJECT_ID }}
       run: |
         # Configure Docker authentication with Google Container Registry
-        gcloud auth configure-docker us-central1-docker.pkg.dev
+        gcloud auth europe-west3-docker.pkg.dev
         
         # Build Docker images for the services
         # Replace the image URLs and Dockerfile paths as needed
         docker build -t europe-west3-docker.pkg.dev/dls-exam/dls-exam-demo/workoutservice:latest -f WorkoutService/Dockerfile .
-        docker build -t ueurope-west3-docker.pkg.dev/dls-exam/dls-exam-demo/nutritionservice:latest -f NutritionService/Dockerfile .
+        docker build -t europe-west3-docker.pkg.dev/dls-exam/dls-exam-demo/nutritionservice:latest -f NutritionService/Dockerfile .
         docker build -t europe-west3-docker.pkg.dev/dls-exam/dls-exam-demo/userservice:latest -f UserService/Dockerfile .
         
         # Push Docker images to Google Container Registry
