@@ -55,7 +55,7 @@ jobs:
         GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
       run: |
         gcloud container clusters get-credentials dls-exam-cluster-1 --region us-central1 --project dls-exam-2
-        sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" WorkoutService/resources.yaml
+        #sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" WorkoutService/resources.yaml
         kubectl apply -f WorkoutService/resources.yaml
 
     - name: deploy to GKE - NutritionService
@@ -63,7 +63,7 @@ jobs:
         GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
       run: |
         gcloud container clusters get-credentials dls-exam-cluster-1 --region us-central1 --project dls-exam-2
-        sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" NutritionService/resources.yaml
+        #sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" NutritionService/resources.yaml
         kubectl apply -f NutritionService/resources.yaml
 
     - name: deploy to GKE - UserService
@@ -71,5 +71,5 @@ jobs:
         GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
       run: |
         gcloud container clusters get-credentials dls-exam-cluster-1 --region us-central1 --project dls-exam-2
-        sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" UserService/resources.yaml
+        #sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" UserService/resources.yaml
         kubectl apply -f UserService/resources.yaml

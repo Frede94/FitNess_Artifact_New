@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: workoutservice
-        image: us-central1-docker.pkg.dev/GOOGLE_PROJECT/github-actions/workoutservice:latest
+        image: us-central1-docker.pkg.dev/dls-exam-2/github-actions/workoutservice:latest
             
         
 
