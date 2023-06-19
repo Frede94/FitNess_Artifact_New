@@ -18,8 +18,8 @@ jobs:
     - name: install the gcloud cli
       uses: google-github-actions/setup-gcloud@v0
       with:
-        project_id: ${{ secrets.ARTIFACT_PROJECT_ID }}
-        service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+        project_id: ${{ secrets.GOOGLE_PROJECT }}
+        service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         install_components: 'gke-gcloud-auth-plugin'
         export_default_credentials: true
       # Install and configure the Google Cloud SDK (gcloud) CLI
@@ -28,7 +28,7 @@ jobs:
     # Step 3: Build and Push Docker Images
     - name: build and push the docker images
       env:
-        GOOGLE_PROJECT: ${{ secrets.ARTIFACT_PROJECT_ID }}
+        GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
       run: |
         # Configure Docker authentication with Google Container Registry
         gcloud auth europe-west3-docker.pkg.dev
