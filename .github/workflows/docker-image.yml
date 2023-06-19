@@ -31,19 +31,19 @@ jobs:
         GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
       run: |
         # Configure Docker authentication with Google Container Registry
-        gcloud auth europe-west3-docker.pkg.dev
+        gcloud auth us-central1-docker.pkg.dev
         
         # Build Docker images for the services
         # Replace the image URLs and Dockerfile paths as needed
-        docker build -t europe-west3-docker.pkg.dev/dls-exam/dls-exam-demo/workoutservice:latest -f WorkoutService/Dockerfile .
-        docker build -t europe-west3-docker.pkg.dev/dls-exam/dls-exam-demo/nutritionservice:latest -f NutritionService/Dockerfile .
-        docker build -t europe-west3-docker.pkg.dev/dls-exam/dls-exam-demo/userservice:latest -f UserService/Dockerfile .
+        docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/github-actions/workoutservice:latest -f WorkoutService/Dockerfile .
+        docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/github-actions/nutritionservice:latest -f NutritionService/Dockerfile .
+        docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/github-actions/userservice:latest -f UserService/Dockerfile .
         
         # Push Docker images to Google Container Registry
         # Replace the image URLs as needed
-        docker push europe-west3-docker.pkg.dev/dls-exam/dls-exam-demo/fitness/workoutservice:latest
-        docker push europe-west3-docker.pkg.dev/dls-exam/dls-exam-demo/fitness/nutritionservice:latest
-        docker push europe-west3-docker.pkg.dev/dls-exam/dls-exam-demo/fitness/userservice:latest
+        docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/github-actions/fitness/workoutservice:latest
+        docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/github-actions/fitness/nutritionservice:latest
+        docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/github-actions/fitness/userservice:latest
       # This step builds Docker images for the services and pushes them to Google Container Registry.
       # The images will be used for deployment to the GKE cluster.
       
