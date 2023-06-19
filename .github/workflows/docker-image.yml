@@ -31,7 +31,7 @@ jobs:
         GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
       run: |
         # Configure Docker authentication with Google Container Registry
-        gcloud auth us-central1-docker.pkg.dev
+        gcloud auth configure-docker us-central1-docker.pkg.dev
         
         # Build Docker images for the services
         # Replace the image URLs and Dockerfile paths as needed
