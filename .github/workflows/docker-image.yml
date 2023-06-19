@@ -1,3 +1,5 @@
+name: Build and Deploy to GKE
+
 on:
   push:
     branches:
@@ -35,15 +37,15 @@ jobs:
         
         # Build Docker images for the services
         # Replace the image URLs and Dockerfile paths as needed
-        docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/github-actions/workoutservice:latest -f WorkoutService/Dockerfile .
-        docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/github-actions/nutritionservice:latest -f NutritionService/Dockerfile .
-        docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/github-actions/userservice:latest -f UserService/Dockerfile .
+        docker build -t us-central1-docker.pkg.dev/dls-exam-2/github-actions/workoutservice:latest -f WorkoutService/Dockerfile .
+        docker build -t us-central1-docker.pkg.dev/dls-exam-2/github-actions/nutritionservice:latest -f NutritionService/Dockerfile .
+        docker build -t us-central1-docker.pkg.dev/dls-exam-2/github-actions/userservice:latest -f UserService/Dockerfile .
         
         # Push Docker images to Google Container Registry
         # Replace the image URLs as needed
-        docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/github-actions/fitness/workoutservice:latest
-        docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/github-actions/fitness/nutritionservice:latest
-        docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/github-actions/fitness/userservice:latest
+        docker push us-central1-docker.pkg.dev/dls-exam-2/github-actions/workoutservice:latest
+        docker push us-central1-docker.pkg.dev/dls-exam-2/github-actions/nutritionservice:latest
+        docker push us-central1-docker.pkg.dev/dls-exam-2/github-actions/userservice:latest
       # This step builds Docker images for the services and pushes them to Google Container Registry.
       # The images will be used for deployment to the GKE cluster.
       
