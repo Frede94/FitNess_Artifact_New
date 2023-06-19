@@ -1,14 +1,21 @@
+# Name of the workflow
 name: Scheduled Job
 
+# Define the event that triggers the workflow
 on:
   schedule:
     - cron: '*/5 * * * *'  # Runs every 5 minutes
     #- cron: '0 0 * * *'  # Runs every day at midnight UTC
+
+# Define the jobs to be executed
 jobs:
   build-and-test:
+    # Name of the job 
     name: Run all unit tests
+    # Specify the runner for the job
     runs-on: ubuntu-latest
 
+    # Define the steps to be executed in the job
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2

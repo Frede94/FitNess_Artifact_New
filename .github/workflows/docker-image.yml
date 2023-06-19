@@ -73,28 +73,3 @@ jobs:
     #    gcloud container clusters get-credentials autopilot-cluster-1 --region us-central1
     #    sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" UserService/resources.yaml
     #    kubectl apply -f UserService/resources.yaml
-
-  build-and-test:
-    name: Run all unit tests
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up .NET
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 7.0.x
-
-      - name: Build
-        run: dotnet build --configuration Release ./FitNess.UnitTests/FitNess.UnitTests.csproj
-
-      - name: Run Unit Tests
-        run: dotnet test --configuration Release --no-build ./FitNess.UnitTests/FitNess.UnitTests.csproj --logger "trx;LogFileName=testresults.trx"
-
-      - name: Publish test results
-        uses: actions/upload-artifact@v2
-        with:
-          name: Test Results
-          path: TestResults
