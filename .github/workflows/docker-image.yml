@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    # Step 1: Code Checkout
+    # Step 1: Code Checkout 
     - name: code checkout
       uses: actions/checkout@v2
       # Checkout the source code from the repository
